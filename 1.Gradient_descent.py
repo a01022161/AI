@@ -15,13 +15,14 @@ def GD(x_start, df, epochs, lr):
         :param lr: 學習率    
         :return: x在每次反覆運算後的位置（包括起始點），長度為epochs+1    
      """    
-    xs = np.zeros(epochs+1)    
-    x = x_start    
-    xs[0] = x    
-    for i in range(epochs):         
+    xs = np.zeros(epochs+1) 
+    # xs生成內容為0的list，數量為epochs+1
+    x = x_start
+    xs[0] = x
+    for i in range(epochs):
         dx = df(x)        
         # v表示x要改變的幅度        
-        v = - dx * lr        
+        v = - dx * lr
         x += v        
         xs[i+1] = x    
     return xs
@@ -43,6 +44,7 @@ color = 'r'
 from numpy import arange
 t = arange(-6.0, 6.0, 0.01)
 plt.plot(t, func(t), c='b')
+#t 為x座標 func(t)為y座標 c為顏色
 plt.plot(x, func(x), c=color, label='lr={}'.format(lr))    
 plt.scatter(x, func(x), c=color, )    
 plt.legend()
